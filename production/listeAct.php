@@ -7,11 +7,7 @@ if(isset($_GET['idActivite']))
 $Activite->deleteActivite($_GET['idActivite']);
 header(("location: listeAct.php"));
 }
-// if (isset($_POST['list_Activite'])) {
-//     echo "hello";
-//     $addActivite = $Activite->addActivite($_POST);
-//     // echo $addActivite;
-// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

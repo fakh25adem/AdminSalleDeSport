@@ -5,7 +5,6 @@ if (isset($_POST['add_Activite'])) {
     echo "hello";
     $addActivite = $Activite->addActivite($_POST);
     header(("location: listeAct.php"));
-    // echo $addActivite;
 }
 ?>
 <!DOCTYPE html>

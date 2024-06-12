@@ -8,11 +8,7 @@ if(isset($_GET['idAbonnement']))
 $Abonnement->deleteAbonnement($_GET['idAbonnement']);
 header(("location: listeAbon.php"));
 }
-// if (isset($_POST['list_Abonnement'])) {
-//     echo "hello";
-//     $addActivite = $Activite->addActivite($_POST);
-//     // echo $addActivite;
-// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
