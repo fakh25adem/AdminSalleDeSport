@@ -18,7 +18,7 @@ class Activite
         $description = $Data['description'];
        
         $max = $Data['max'];
-        $ok = $this->db->exec("INSERT INTO activite  VALUES ('','$nom','$description','$max')");
+        $this->db->exec("INSERT INTO activite  VALUES ('','$nom','$description','$max')");
       
     }
     function deleteActivite($id)
@@ -28,9 +28,20 @@ class Activite
         $this->db->exec("delete from activite where id='$id'");
   
     }
-    // function deleteClients($id)
-    // {
+    function getActiviteById($id)
+    {
+    
+        return $this->db->query("SELECT * FROM activite where id='$id'")->fetch();
+  
+    }
+    function updateActivite($Data)
+    {
+        $id=$Data['idActivite'];
 
-    //     $this->db->exec("delete from client where idClient='$id'");
-    // }
+        $nom = $Data['nom'];
+        $description = $Data['description'];
+        $max = $Data['max'];
+        return $this->db->exec("update activite  set nom='$nom',description='$description',max_participants='$max' where id='$id'");
+  
+    }
 }

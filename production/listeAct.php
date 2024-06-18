@@ -274,7 +274,7 @@ header(("location: listeAct.php"));
                    <td>{$c['description']}</td>
                    <td>{$c['max_participants']}</td>
                    <td><a href='?idActivite={$c['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
-                   <td><a href='update.php?idActivite={$c['id']}' class='btn btn-primary btn-sm'>Update</a></td>
+                   <td><a href='updateAct.php?idActivite={$c['id']}' class='btn btn-primary btn-sm'>Update</a></td>
                   </tr>";
         }
         ?>

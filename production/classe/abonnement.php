@@ -10,14 +10,13 @@ class Abonnement
     function listAbonnement()
     {
  
-      return $results = $this->db->query("
+      return  $this->db->query("
       SELECT a.id, a.code, a.prix_mois, a.prix_semester, a.prix_annuel, GROUP_CONCAT(act.nom SEPARATOR ', ') AS activites
       FROM abonnement a, abonactiv abonact, activite act
       WHERE a.id = abonact.idAbonnement AND abonact.idActivite = act.id
-      GROUP BY a.id, a.code, a.prix_mois, a.prix_semester, a.prix_annuel
-
-  ");
+      GROUP BY a.id, a.code, a.prix_mois, a.prix_semester, a.prix_annuel");
     }
+
 
     function addAbonnement($Data)
     {
@@ -40,6 +39,12 @@ foreach ($activite as $act){
          return "true";
         
     }
+    function getAbonnementById($id)
+    {
+    
+        return $this->db->query("SELECT * FROM abonnement where id='$id'")->fetch();
+  
+    }
     function deleteAbonnement($id)
     {
         $this->db->exec("DELETE FROM abonactiv WHERE idAbonnement = '$id'");
@@ -47,9 +52,14 @@ foreach ($activite as $act){
         $this->db->exec("DELETE FROM abonnement where id='$id'");
   
     }
-    // function deleteClients($id)
-    // {
-
-    //     $this->db->exec("delete from client where idClient='$id'");
-    // }
+    function updateAbonnement($Data)
+    {
+        $id = $Data['id'];
+        $code = $Data['code'];
+        $mois = $Data['mois'];
+        $annuel = $Data['annuel'];
+        $semester = $Data['semester'];
+        return $this->db->exec("UPDATE abonnement SET code='$code',prix_mois='$mois',prix_semester='$semester',prix_annuel='$annuel' WHERE id='$id'");
+  
+    }
 }
