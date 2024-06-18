@@ -4,17 +4,11 @@ include "../production/classe/activite.php";
 $Activite = new Activite();
 $listActivite = $Activite->listActivite();
 include "../production/classe/abonnement.php";
-$message = "";
-$message2 = "";
+
 if (isset($_POST['add_Abonnement'])) {
     $Abonnement = new Abonnement();
     $addAbonnement = $Abonnement->addAbonnement($_POST);
-
-    if ($addAbonnement === "true") {
-        header("location: listeAbon.php");
-    } else {
-        $message = "False";
-    }
+    header("location: listeAbon.php");
 }
 
 
@@ -296,21 +290,7 @@ if (isset($_POST['add_Abonnement'])) {
                                                 <input name="annuel" type="number" class="form-control" id="inputMaxParticipants" placeholder="Prix annuel">
                                             </div>
 
-                                            <?php if ($message == "False") {
-
-                                                echo '
-                                                <div  class="form-group col-12 text-center"> <div id="message" class="alert alert-danger" role="alert">
-                                                         Abonnement existe déja
-                                                      </div>
-                                                       </div>';
-                                            }
-
-
-
-
-
-
-                                            ?>
+                                       
 
                                             <div class="form-group col-12 text-center">
                                                 <button type="submit" name="add_Abonnement" class="btn btn-primary">Ajouter l'abonnement</button>

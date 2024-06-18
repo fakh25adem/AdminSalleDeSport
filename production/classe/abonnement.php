@@ -36,7 +36,7 @@ foreach ($activite as $act){
     $this->db->exec("INSERT INTO abonactiv VALUES ('','$act','$last_id')");
 
 }
-         return "true";
+       
         
     }
     function getAbonnementById($id)
