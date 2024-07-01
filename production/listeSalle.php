@@ -1,19 +1,13 @@
 <?php
-include "../production/classe/activite.php";
-$activite = new Activite();
-
-if(isset($_GET['idActivite']))
+include "../production/classe/salle.php";
+$Salle= new Salle();
+$listSalle = $Salle->listSalle();
+if(isset($_GET['idSalle']))
 {
-    $act=$activite->getActiviteById($_GET['idActivite']);
-
+$Salle->deleteSalle($_GET['idSalle']);
+header(("location: listeSalle.php"));
 }
-if(isset($_POST['update_Activite']))
-{
-$activite->updateActivite($_POST);
 
-header(("location: listeAct.php"));
-
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,54 +54,63 @@ header(("location: listeAct.php"));
                     <br />
 
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                        <div class="menu_section">
-                            <h3>Admin</h3>
-                            <ul class="nav side-menu">
-                                <li><a><i class="fa fa-home"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="ajouterU.html">Ajouter utilisateur</a></li>
-                                        <li><a href="listeU.html">Liste utilisateur</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="ajouterR.html">Ajouter role</a></li>
-                                        <li><a href="listeR.html">Liste role</a></li>
+              <div class="menu_section">
+                <h3>Admin</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="ajouterU.html">Ajouter utilisateur</a></li>
+                      <li><a href="listeU.html">Liste utilisateur</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="ajouterR.html">Ajouter role</a></li>
+                      <li><a href="listeR.html">Liste role</a></li>
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i> Activité <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="ajouterAct.php">Ajouter Activité</a></li>
+                      <li><a href="listeAct.php">Liste activité</a></li>
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> Entraineur <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="ajouterEn.html">Ajouter entraineur</a></li>
+                      <li><a href="listeEn.html">listee entraineur</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-bar-chart-o"></i> Emploi <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="ajouterEmp.html">Ajouter emploi</a></li>
+                      <li><a href="listeEmp.html">Liste emploi</a></li>
+                 
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>Abonnement <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                    <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
 
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-desktop"></i> Activité <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="ajouterAct.php">Ajouter Activité</a></li>
-                                        <li><a href="listeAct.php">Liste activité</a></li>
+                      <li><a href="listeAbon.php">Liste abonnement</a></li>
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                    <li><a href="ajouterSalle.php">Ajouter salle</a></li>
 
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-table"></i> Entraineur <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="ajouterEn.html">Ajouter entraineur</a></li>
-                                        <li><a href="listeEn.html">listee entraineur</a></li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-bar-chart-o"></i> Emploi <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="ajouterEmp.html">Ajouter emploi</a></li>
-                                        <li><a href="listeEmp.html">Liste emploi</a></li>
+                      <li><a href="listeSalle.php">Liste salle</a></li>
+                     
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+           
 
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-clone"></i>Abonnement <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
-                                        <li><a href="listeAbon.php">Liste abonnement</a></li>
-
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                    </div>
+            </div>
 
                     <div class="sidebar-footer hidden-small">
                         <a data-toggle="tooltip" data-placement="top" title="Settings">
@@ -221,7 +224,7 @@ header(("location: listeAct.php"));
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Update activité </h3>
+                            <h3>Liste activité</h3>
                         </div>
 
                         <div class="title_right">
@@ -240,7 +243,7 @@ header(("location: listeAct.php"));
                         <div class="col-md-12 col-sm-12 ">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2><small>different form elements</small></h2>
+                                    <h2> <small>different form elements</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -260,27 +263,32 @@ header(("location: listeAct.php"));
                                 </div>
                                 <div class="x_content">
                                     <br />
-                                    <form method="post" action="">
-                                    <div class="form-group col-12">
-                                    <input type="hidden" name="idActivite" value="<?php echo $act['id']?>">
-        </div>
-        <div class="form-group col-12">
-            <label for="inputNom">Nom de l'activité</label>
-            <input name="nom" type="text" value="<?php echo $act['nom']?>" class="form-control" id="inputNom" placeholder="Nom de l'activité">
-        </div>
-        <div class="form-group col-12">
-            <label for="inputDescription">Description de l'activité</label>
-            <input name="description" type="text" value="<?php echo $act['description']?>" class="form-control" id="inputDescription" placeholder="Description de l'activité">
-        </div>
+                                    <div class="container mt-5">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Libelle_Salle</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+       while ($c = $listSalle->fetch()) {
+      
+        echo "<tr>
+            
+               <td>{$c['libelle']}</td>
+            
+               <td><a href='?idSalle={$c['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
+               <td><a href='updateSalle.php?idSalle={$c['id']}' class='btn btn-primary btn-sm'>Update</a></td>
+              </tr>";
+    }
     
-        <div class="form-group col-12">
-            <label for="inputMaxParticipants">Nombre maximum de participants</label>
-            <input name="max" type="number" class="form-control" value="<?php echo $act['max_participants']?>" id="inputMaxParticipants" placeholder="Max participants">
-        </div>
-        <div class="form-group col-12 text-center">
-            <button type="submit" name="update_Activite" class="btn btn-primary">Update l'activité</button>
-        </div>
-    </form>
+        ?>
+        </tbody>
+    </table>
+</div>
                                 </div>
                             </div>
                         </div>
@@ -296,11 +304,11 @@ header(("location: listeAct.php"));
             </footer>
         </div>
     </div>
-
+    
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->

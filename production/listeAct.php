@@ -36,7 +36,7 @@ header(("location: listeAct.php"));
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
+                        <a href="ajouterAbon.php" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -95,6 +95,14 @@ header(("location: listeAct.php"));
                     <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
 
                       <li><a href="listeAbon.php">Liste abonnement</a></li>
+                     
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                    <li><a href="ajouterSalle.php">Ajouter salle</a></li>
+
+                      <li><a href="listeSalle.php">Liste salle</a></li>
                      
                     </ul>
                   </li>

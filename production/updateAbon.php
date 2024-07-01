@@ -47,7 +47,7 @@ header(("location: listeAbon.php"));
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
+                        <a href="ajouterAbon.php" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -226,7 +226,7 @@ header(("location: listeAbon.php"));
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Ajouter abonnement </h3>
+                            <h3>Update salle </h3>
                         </div>
 
                         <div class="title_right">

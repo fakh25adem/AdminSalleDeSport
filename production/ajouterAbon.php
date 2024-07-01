@@ -41,7 +41,7 @@ if (isset($_POST['add_Abonnement'])) {
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
+                        <a href="ajouterAbon.php" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -99,6 +99,14 @@ if (isset($_POST['add_Abonnement'])) {
                                     <ul class="nav child_menu">
                                         <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
                                         <li><a href="listeAbon.php">Liste abonnement</a></li>
+
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterSalle.php">Ajouter salle</a></li>
+
+                                        <li><a href="listeSalle.php">Liste salle</a></li>
 
                                     </ul>
                                 </li>
@@ -265,7 +273,7 @@ if (isset($_POST['add_Abonnement'])) {
                                             <div class="form-group col-12">
 
                                                 <label for="inputDuree">Sélectionner une activité</label>
-                                                <select name="activite[]"  class="form-control multiple-select" id="" multiple>
+                                                <select name="activite[]" class="form-control multiple-select" id="" multiple>
                                                     <?php
                                                     while ($c = $listActivite->fetch()) {
                                                         echo "<option value='{$c['id']}'>{$c['nom']}</option>";
@@ -290,7 +298,7 @@ if (isset($_POST['add_Abonnement'])) {
                                                 <input name="annuel" type="number" class="form-control" id="inputMaxParticipants" placeholder="Prix annuel">
                                             </div>
 
-                                       
+
 
                                             <div class="form-group col-12 text-center">
                                                 <button type="submit" name="add_Abonnement" class="btn btn-primary">Ajouter l'abonnement</button>
@@ -320,7 +328,7 @@ if (isset($_POST['add_Abonnement'])) {
             }, 2000);
         }
     </script>
-  
+
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -335,9 +343,11 @@ if (isset($_POST['add_Abonnement'])) {
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script>$(".multiple-select").select2({
-//   maximumSelectionLength: 2
-});</script>
+    <script>
+        $(".multiple-select").select2({
+            //   maximumSelectionLength: 2
+        });
+    </script>
 </body>
 
 </html>

@@ -1,18 +1,10 @@
 <?php
-include "../production/classe/activite.php";
-$activite = new Activite();
-
-if(isset($_GET['idActivite']))
-{
-    $act=$activite->getActiviteById($_GET['idActivite']);
-
-}
-if(isset($_POST['update_Activite']))
-{
-$activite->updateActivite($_POST);
-
-header(("location: listeAct.php"));
-
+include "../production/classe/salle.php";
+$Salle = new Salle();
+if (isset($_POST['add_Salle'])) {
+    echo "hello";
+    $addSalle = $Salle->addSalle($_POST);
+    header(("location: listeSalle.php"));
 }
 ?>
 <!DOCTYPE html>
@@ -23,7 +15,7 @@ header(("location: listeAct.php"));
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Salle de sport  </title>
+    <title>Salle de sport | </title>
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
@@ -100,6 +92,14 @@ header(("location: listeAct.php"));
                                     <ul class="nav child_menu">
                                         <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
                                         <li><a href="listeAbon.php">Liste abonnement</a></li>
+
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterSalle.php">Ajouter salle</a></li>
+
+                                        <li><a href="listeSalle.php">Liste salle</a></li>
 
                                     </ul>
                                 </li>
@@ -221,7 +221,7 @@ header(("location: listeAct.php"));
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Update activité </h3>
+                            <h3>Ajouter salle </h3>
                         </div>
 
                         <div class="title_right">
@@ -261,26 +261,15 @@ header(("location: listeAct.php"));
                                 <div class="x_content">
                                     <br />
                                     <form method="post" action="">
-                                    <div class="form-group col-12">
-                                    <input type="hidden" name="idActivite" value="<?php echo $act['id']?>">
-        </div>
-        <div class="form-group col-12">
-            <label for="inputNom">Nom de l'activité</label>
-            <input name="nom" type="text" value="<?php echo $act['nom']?>" class="form-control" id="inputNom" placeholder="Nom de l'activité">
-        </div>
-        <div class="form-group col-12">
-            <label for="inputDescription">Description de l'activité</label>
-            <input name="description" type="text" value="<?php echo $act['description']?>" class="form-control" id="inputDescription" placeholder="Description de l'activité">
-        </div>
-    
-        <div class="form-group col-12">
-            <label for="inputMaxParticipants">Nombre maximum de participants</label>
-            <input name="max" type="number" class="form-control" value="<?php echo $act['max_participants']?>" id="inputMaxParticipants" placeholder="Max participants">
-        </div>
-        <div class="form-group col-12 text-center">
-            <button type="submit" name="update_Activite" class="btn btn-primary">Update l'activité</button>
-        </div>
-    </form>
+                                        <div class="form-group col-12">
+                                            <label for="inputNom">Nom du salle</label>
+                                            <input name="libelle" type="text" class="form-control" id="inputNom" placeholder="Nom de salle">
+                                        </div>
+                                
+                                        <div class="form-group col-12 text-center">
+                                            <button type="submit" name="add_Salle" class="btn btn-primary">Ajouter salle</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

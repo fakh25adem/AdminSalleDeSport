@@ -1,19 +1,17 @@
 <?php
-include "../production/classe/activite.php";
-$activite = new Activite();
+include "../production/classe/salle.php";
+$Salle = new Salle();
 
-if(isset($_GET['idActivite']))
-{
-    $act=$activite->getActiviteById($_GET['idActivite']);
 
+if (isset($_GET['idSalle'])) {
+    $salle = $Salle->getSalleById($_GET['idSalle']);
 }
-if(isset($_POST['update_Activite']))
-{
-$activite->updateActivite($_POST);
+if (isset($_POST['update_Salle'])) {
+    $Salle->updateSalle($_POST);
 
-header(("location: listeAct.php"));
-
+    header(("location: listeSalle.php"));
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +21,7 @@ header(("location: listeAct.php"));
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Salle de sport  </title>
+    <title>Salle de sport </title>
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
@@ -34,15 +32,16 @@ header(("location: listeAct.php"));
     <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <link href="../build/css/custom.min.css" rel="stylesheet">
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-<body class="nav-md">
+
+<body onload="hideMessage()" class="nav-md">
     <div class="container body">
         <div class="main_container">
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="ajouterAbon.php" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
+                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -52,7 +51,7 @@ header(("location: listeAct.php"));
                             <img src="images/adem.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>Welcome,</span>
+                            <span>Welcome</span>
                             <h2>Adem Fakhfakh</h2>
                         </div>
                     </div>
@@ -100,6 +99,14 @@ header(("location: listeAct.php"));
                                     <ul class="nav child_menu">
                                         <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
                                         <li><a href="listeAbon.php">Liste abonnement</a></li>
+
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterSalle.php">Ajouter salle</a></li>
+
+                                        <li><a href="listeSalle.php">Liste salle</a></li>
 
                                     </ul>
                                 </li>
@@ -221,7 +228,7 @@ header(("location: listeAct.php"));
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Update activité </h3>
+                            <h3>Update salle</h3>
                         </div>
 
                         <div class="title_right">
@@ -261,26 +268,23 @@ header(("location: listeAct.php"));
                                 <div class="x_content">
                                     <br />
                                     <form method="post" action="">
-                                    <div class="form-group col-12">
-                                    <input type="hidden" name="idActivite" value="<?php echo $act['id']?>">
-        </div>
-        <div class="form-group col-12">
-            <label for="inputNom">Nom de l'activité</label>
-            <input name="nom" type="text" value="<?php echo $act['nom']?>" class="form-control" id="inputNom" placeholder="Nom de l'activité">
-        </div>
-        <div class="form-group col-12">
-            <label for="inputDescription">Description de l'activité</label>
-            <input name="description" type="text" value="<?php echo $act['description']?>" class="form-control" id="inputDescription" placeholder="Description de l'activité">
-        </div>
-    
-        <div class="form-group col-12">
-            <label for="inputMaxParticipants">Nombre maximum de participants</label>
-            <input name="max" type="number" class="form-control" value="<?php echo $act['max_participants']?>" id="inputMaxParticipants" placeholder="Max participants">
-        </div>
-        <div class="form-group col-12 text-center">
-            <button type="submit" name="update_Activite" class="btn btn-primary">Update l'activité</button>
-        </div>
-    </form>
+                                        <div class="row">
+                                            <div class="form-group col-12">
+                                                <input type="hidden" name="id" value="<?php echo $salle['id'] ?>">
+                                            </div>
+
+                                            <div class="form-group col-6">
+                                                <label for="inputMaxParticipants">Nom du salle</label>
+                                                <input name="libelle" type="text" value="<?php echo $salle['libelle'] ?>" class="form-control" id="inputMaxParticipants" placeholder="Code">
+                                            </div>
+
+
+
+                                            <div class="form-group col-12 text-center">
+                                                <button type="submit" name="update_Salle" class="btn btn-primary">Update salle</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -296,6 +300,14 @@ header(("location: listeAct.php"));
             </footer>
         </div>
     </div>
+    <script>
+        function hideMessage() {
+            setTimeout(function() {
+                document.getElementById('message').style.display = 'none';
+
+            }, 2000);
+        }
+    </script>
 
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
@@ -310,6 +322,12 @@ header(("location: listeAct.php"));
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(".multiple-select").select2({
+            //   maximumSelectionLength: 2
+        });
+    </script>
 </body>
 
 </html>

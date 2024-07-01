@@ -34,7 +34,7 @@ if (isset($_POST['add_Activite'])) {
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
+                        <a href="ajouterAbon.php" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -92,6 +92,14 @@ if (isset($_POST['add_Activite'])) {
                                     <ul class="nav child_menu">
                                         <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
                                         <li><a href="listeAbon.php">Liste abonnement</a></li>
+
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterSalle.php">Ajouter salle</a></li>
+
+                                        <li><a href="listeSalle.php">Liste salle</a></li>
 
                                     </ul>
                                 </li>
@@ -253,23 +261,23 @@ if (isset($_POST['add_Activite'])) {
                                 <div class="x_content">
                                     <br />
                                     <form method="post" action="">
-        <div class="form-group col-12">
-            <label for="inputNom">Nom de l'activité</label>
-            <input name="nom" type="text" class="form-control" id="inputNom" placeholder="Nom de l'activité">
-        </div>
-        <div class="form-group col-12">
-            <label for="inputDescription">Description de l'activité</label>
-            <input name="description" type="text" class="form-control" id="inputDescription" placeholder="Description de l'activité">
-        </div>
-    
-        <div class="form-group col-12">
-            <label for="inputMaxParticipants">Nombre maximum de participants</label>
-            <input name="max" type="number" class="form-control" id="inputMaxParticipants" placeholder="Max participants">
-        </div>
-        <div class="form-group col-12 text-center">
-            <button type="submit" name="add_Activite" class="btn btn-primary">Ajouter l'activité</button>
-        </div>
-    </form>
+                                        <div class="form-group col-12">
+                                            <label for="inputNom">Nom de l'activité</label>
+                                            <input name="nom" type="text" class="form-control" id="inputNom" placeholder="Nom de l'activité">
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label for="inputDescription">Description de l'activité</label>
+                                            <input name="description" type="text" class="form-control" id="inputDescription" placeholder="Description de l'activité">
+                                        </div>
+
+                                        <div class="form-group col-12">
+                                            <label for="inputMaxParticipants">Nombre maximum de participants</label>
+                                            <input name="max" type="number" class="form-control" id="inputMaxParticipants" placeholder="Max participants">
+                                        </div>
+                                        <div class="form-group col-12 text-center">
+                                            <button type="submit" name="add_Activite" class="btn btn-primary">Ajouter l'activité</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
