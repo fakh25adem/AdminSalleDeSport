@@ -15,7 +15,7 @@ if (isset($_POST['add_Activite'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Salle de sport | </title>
+    <title>Salle de sport  </title>
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
@@ -57,14 +57,14 @@ if (isset($_POST['add_Activite'])) {
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterU.html">Ajouter utilisateur</a></li>
-                                        <li><a href="listeU.html">Liste utilisateur</a></li>
+                                        <li><a href="ajouterU.php">Ajouter utilisateur</a></li>
+                                        <li><a href="listeU.php">Liste utilisateur</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterR.html">Ajouter role</a></li>
-                                        <li><a href="listeR.html">Liste role</a></li>
+                                        <li><a href="ajouterR.php">Ajouter role</a></li>
+                                        <li><a href="listeR.php">Liste role</a></li>
 
                                     </ul>
                                 </li>
@@ -77,14 +77,14 @@ if (isset($_POST['add_Activite'])) {
                                 </li>
                                 <li><a><i class="fa fa-table"></i> Entraineur <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterEn.html">Ajouter entraineur</a></li>
-                                        <li><a href="listeEn.html">listee entraineur</a></li>
+                                        <li><a href="ajouterEn.php">Ajouter entraineur</a></li>
+                                        <li><a href="listeEn.php">listee entraineur</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-bar-chart-o"></i> Emploi <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterEmp.html">Ajouter emploi</a></li>
-                                        <li><a href="listeEmp.html">Liste emploi</a></li>
+                                        <li><a href="ajouterEmp.php">Ajouter emploi</a></li>
+                                        <li><a href="listeEmp.php">Liste emploi</a></li>
 
                                     </ul>
                                 </li>

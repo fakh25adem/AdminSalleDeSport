@@ -64,14 +64,14 @@ if (isset($_POST['add_Abonnement'])) {
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterU.html">Ajouter utilisateur</a></li>
-                                        <li><a href="listeU.html">Liste utilisateur</a></li>
+                                        <li><a href="ajouterU.php">Ajouter utilisateur</a></li>
+                                        <li><a href="listeU.php">Liste utilisateur</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterR.html">Ajouter role</a></li>
-                                        <li><a href="listeR.html">Liste role</a></li>
+                                        <li><a href="ajouterR.php">Ajouter role</a></li>
+                                        <li><a href="listeR.php">Liste role</a></li>
 
                                     </ul>
                                 </li>
@@ -84,14 +84,14 @@ if (isset($_POST['add_Abonnement'])) {
                                 </li>
                                 <li><a><i class="fa fa-table"></i> Entraineur <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterEn.html">Ajouter entraineur</a></li>
-                                        <li><a href="listeEn.html">listee entraineur</a></li>
+                                        <li><a href="ajouterEn.php">Ajouter entraineur</a></li>
+                                        <li><a href="listeEn.php">listee entraineur</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-bar-chart-o"></i> Emploi <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterEmp.html">Ajouter emploi</a></li>
-                                        <li><a href="listeEmp.html">Liste emploi</a></li>
+                                        <li><a href="ajouterEmp.php">Ajouter emploi</a></li>
+                                        <li><a href="listeEmp.php">Liste emploi</a></li>
 
                                     </ul>
                                 </li>

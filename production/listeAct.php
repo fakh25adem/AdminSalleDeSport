@@ -65,8 +65,8 @@ header(("location: listeAct.php"));
                   </li>
                   <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="ajouterR.html">Ajouter role</a></li>
-                      <li><a href="listeR.html">Liste role</a></li>
+                      <li><a href="ajouterR.php">Ajouter role</a></li>
+                      <li><a href="listeR.php">Liste role</a></li>
                      
                     </ul>
                   </li>
@@ -79,14 +79,14 @@ header(("location: listeAct.php"));
                   </li>
                   <li><a><i class="fa fa-table"></i> Entraineur <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="ajouterEn.html">Ajouter entraineur</a></li>
-                      <li><a href="listeEn.html">listee entraineur</a></li>
+                      <li><a href="ajouterEn.php">Ajouter entraineur</a></li>
+                      <li><a href="listeEn.php">listee entraineur</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Emploi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="ajouterEmp.html">Ajouter emploi</a></li>
-                      <li><a href="listeEmp.html">Liste emploi</a></li>
+                      <li><a href="ajouterEmp.php">Ajouter emploi</a></li>
+                      <li><a href="listeEmp.php">Liste emploi</a></li>
                  
                     </ul>
                   </li>

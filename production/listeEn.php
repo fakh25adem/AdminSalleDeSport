@@ -1,11 +1,11 @@
 <?php
-include "../production/classe/salle.php";
-$Salle= new Salle();
-$listSalle = $Salle->listSalle();
-if(isset($_GET['idSalle']))
+include "../production/classe/entreneur.php";
+$Entreneur= new Entreneur();
+$listEntreneur = $Entreneur->listEntreneur();
+if(isset($_GET['idEn']))
 {
-$Salle->deleteSalle($_GET['idSalle']);
-header(("location: listeSalle.php"));
+$Entreneur->deleteEntreneur($_GET['idEn']);
+header(("location: listeEn.php"));
 }
 
 ?>
@@ -224,7 +224,7 @@ header(("location: listeSalle.php"));
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Liste activité</h3>
+                            <h3>Liste entreneur</h3>
                         </div>
 
                         <div class="title_right">
@@ -267,21 +267,26 @@ header(("location: listeSalle.php"));
     <table class="table table-bordered table-hover">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">Libelle_Salle</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Type activite</th>
+
             <th scope="col">Delete</th>
             <th scope="col">Update</th>
         </tr>
         </thead>
         <tbody>
         <?php
-       while ($c = $listSalle->fetch()) {
+       while ($c = $listEntreneur->fetch()) {
       
         echo "<tr>
             
-               <td>{$c['libelle']}</td>
+               <td>{$c['nom']}</td>
+               <td>{$c['prenom']}</td>
+               <td>{$c['type_activite']}</td>
             
-               <td><a href='?idSalle={$c['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
-               <td><a href='updateSalle.php?idSalle={$c['id']}' class='btn btn-primary btn-sm'>Update</a></td>
+               <td><a href='?idEn={$c['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
+               <td><a href='updateEn.php?idEn={$c['id']}' class='btn btn-primary btn-sm'>Update</a></td>
               </tr>";
     }
     
@@ -320,4 +325,4 @@ header(("location: listeSalle.php"));
     <script src="../build/js/custom.min.js"></script>
 </body>
 
-</html>
+</php>
