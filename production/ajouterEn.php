@@ -278,17 +278,7 @@ if (isset($_POST['add_En'])) {
                                                 <label for="inputMaxParticipants">prenom</label>
                                                 <input name="prenom" type="text" class="form-control" id="inputMaxParticipants" placeholder="prenom entreneur">
                                             </div>
-                                            <div class="form-group col-12">
-
-                                                <label for="inputDuree">Sélectionner une activité</label>
-                                                <select name="type" class="form-control " id="" >
-                                                    <?php
-                                                    while ($c = $listActivite->fetch()) {
-                                                        echo "<option value='{$c['nom']}'>{$c['nom']}</option>";
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>     
+                                            
                                          
                                             <div class="form-group col-12 text-center">
                                                 <button type="submit" name="add_En" class="btn btn-primary">Ajouter entreneur</button>

@@ -269,7 +269,6 @@ header(("location: listeEn.php"));
         <tr>
             <th scope="col">Nom</th>
             <th scope="col">Prenom</th>
-            <th scope="col">Type activite</th>
 
             <th scope="col">Delete</th>
             <th scope="col">Update</th>
@@ -282,9 +281,7 @@ header(("location: listeEn.php"));
         echo "<tr>
             
                <td>{$c['nom']}</td>
-               <td>{$c['prenom']}</td>
-               <td>{$c['type_activite']}</td>
-            
+               <td>{$c['prenom']}</td>            
                <td><a href='?idEn={$c['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
                <td><a href='updateEn.php?idEn={$c['id']}' class='btn btn-primary btn-sm'>Update</a></td>
               </tr>";

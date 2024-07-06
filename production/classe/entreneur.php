@@ -8,14 +8,13 @@ class Entreneur
     }
     function listEntreneur()
     {
-        return $this->db->query("select * from entreneur");
+        return $this->db->query("SELECT * FROM entreneur");
     }
     function addEntreneur($Data)
     {
         $nom = $Data['nom'];
         $prenom = $Data['prenom'];
-        $type = $Data['type'];
-        $this->db->exec("INSERT INTO entreneur  VALUES ('','$nom','$prenom','$type')");
+        $this->db->exec("INSERT INTO entreneur  VALUES ('','$nom','$prenom')");
       
     }
 
@@ -25,6 +24,7 @@ class Entreneur
         return $this->db->query("SELECT * FROM Entreneur where id='$id'")->fetch();
   
     }
+   
     function deleteEntreneur($id)
     {
         $this->db->exec("DELETE FROM Entreneur WHERE id = '$id'");
@@ -35,10 +35,10 @@ class Entreneur
         $id = $Data['id'];
         $nom = $Data['nom'];
         $prenom = $Data['prenom'];
-        $type = $Data['type'];
-        return $this->db->exec("UPDATE Entreneur SET nom='$nom',prenom='$prenom',type_activite='$type' WHERE id='$id'");
+        return $this->db->exec("UPDATE Entreneur SET nom='$nom',prenom='$prenom' WHERE id='$id'");
   
     }
+    
 
    
 }
