@@ -1,10 +1,9 @@
 <?php
-include "../production/classe/Role.php";
+include "../production/classe/role.php";
 $Role = new Role();
 if (isset($_POST['add_Role'])) {
-    echo "hello";
     $addRole = $Role->addRole($_POST);
-    header(("location: listeR.php"));
+    // header(("location: listeR.php"));
 }
 ?>
 
