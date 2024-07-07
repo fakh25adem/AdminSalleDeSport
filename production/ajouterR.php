@@ -1,10 +1,10 @@
 <?php
-include "../production/classe/Role.php";
+include "../production/classe/role.php";
 $Role = new Role();
 if (isset($_POST['add_Role'])) {
-    echo "hello";
+    $Role = new Role();
     $addRole = $Role->addRole($_POST);
-    header(("location: listeR.php"));
+     header(("location: listeR.php"));
 }
 ?>
 
@@ -263,7 +263,7 @@ if (isset($_POST['add_Role'])) {
                                     <br />
                                     <form method="post" action="">
                                         <div class="form-group col-12">
-                                            <label for="inputNom">Nom du salle</label>
+                                            <label for="inputNom">Role</label>
                                             <input name="Libelle" type="text" class="form-control" id="inputNom" placeholder="Role">
                                         </div>
                                 

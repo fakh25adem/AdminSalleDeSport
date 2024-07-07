@@ -1,12 +1,12 @@
 <?php
 include "../production/classe/Role.php";
 $Role= new Role();
-$listeR = $Role->listeR();
-if(isset($_GET['id_R']))
-{
-$Role->deleteRole($_GET['id_R']);
-header(("location: listeR.php"));
-}
+$listRole = $Role->listRole();
+ if(isset($_GET['id_R']))
+ {
+ $Role->deleteRole($_GET['id_R']);
+ header(("location: listeR.php"));
+ }
 
 ?>
 <!DOCTYPE html>
@@ -274,14 +274,14 @@ header(("location: listeR.php"));
         </thead>
         <tbody>
         <?php
-       while ($c = $listSalle->fetch()) {
+       while ($c = $listRole->fetch()) {
       
         echo "<tr>
             
-               <td>{$c['libelle']}</td>
+               <td>{$c['Libelle']}</td>
             
-               <td><a href='?idSalle={$c['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
-               <td><a href='updateSalle.php?idSalle={$c['id']}' class='btn btn-primary btn-sm'>Update</a></td>
+               <td><a href='?idSalle={$c['id_R']}' class='btn btn-danger btn-sm'>Delete</a></td>
+               <td><a href='updateSalle.php?idSalle={$c['id_R']}' class='btn btn-primary btn-sm'>Update</a></td>
               </tr>";
     }
     

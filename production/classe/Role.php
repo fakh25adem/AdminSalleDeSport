@@ -1,40 +1,41 @@
-<?
-Class Role {
-   
-    private $role;
+<?php
+class Role
+{
+    private $db;
     function __construct()
     {
-        $this->role = new PDO('mysql:host=localhost;dbname=salledesport', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;dbname=salledesport', 'root', '');
     }
-    function listeR()
-    {
-        return $this->role->query("select * from Role");
-    }
+
     function addRole($Data)
     {
-        $Libelle = $Data['Libelle'];
+        $role = $Data['Libelle'];
        
-        $this->role->exec("INSERT INTO Role  VALUES ('','$Libelle')");
+        $this->db->exec("INSERT INTO role  VALUES ('','$role')");
       
     }
-    function deleteRole($id_R)
+    function listRole()
     {
-
-        $this->role->exec("delete from Role where id='$id_R'");
-  
+        return $this->db->query("select * from Role");
     }
     function getRoleById($id_R)
     {
     
-        return $this->role->query("SELECT * FROM Role where id_R='$id_R'")->fetch();
+        return $this->db->query("SELECT * FROM Role where id='$id_R'")->fetch();
   
     }
-    function updateActivite($Data)
+    function deleteRole($id_R)
     {
-        $Libelle = $Data['Libelle'];
+        $this->db->exec("DELETE FROM Role WHERE id = '$id_R'");
 
-        return $this->role->exec("update Role  set Libelle='$Libelle'");
+    }
+    function updateRole($Data)
+    {
+        $id_R = $Data['id_R'];
+        $Libelle = $Data['Libelle'];
+       
+        return $this->db->exec("UPDATE Role SET Libelle='$Libelle' WHERE id_R='$id_R'");
   
     }
+   
 }
-
