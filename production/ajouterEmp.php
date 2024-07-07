@@ -13,7 +13,7 @@ $Emploi = new Emploi();
 if (isset($_POST['add_Emploi'])) {
   
   $addEmploi = $Emploi->addEmploi($_POST);
- // header(("location: listeAct.php"));
+  header(("location: listeEmp.php"));
 }
 
 ?>
