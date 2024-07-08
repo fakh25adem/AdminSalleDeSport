@@ -1,10 +1,17 @@
 <?php
 include "../production/classe/utilisateur.php";
-$utilisateur = new utilisateur();
-if (isset($_POST['addUtilisateur'])) {
-    $addUtilisateur = $utilisateur->addUtilisateur($_POST);
-     header(("location: listeU.php"));
+$Utilisateur= new Utilisateur();
+
+
+if (isset($_GET['id'])) {
+    $Util = $Utilisateur->getUtilisateurById($_GET['id']);
 }
+if (isset($_POST['updateUtilisateur'])) {
+    $Utilisateur->updateUtilisateur($_POST);
+
+    header(("location: listeU.php"));
+}
+// comment
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +45,7 @@ if (isset($_POST['addUtilisateur'])) {
     <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
 
-  <body class="nav-md">
+  <body onload="hideMessage()" class="nav-md">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -231,7 +238,7 @@ if (isset($_POST['addUtilisateur'])) {
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Ajouter Utilisateur </h3>
+                            <h3>Update Utilisateur </h3>
                         </div>
 
                         <div class="title_right">
@@ -272,36 +279,36 @@ if (isset($_POST['addUtilisateur'])) {
                                     <br />
                                     <form method="post" action="">
                                         <div class="row">
-                                        
-                                        <div class="form-group col-12">
+                                            <div class="form-group col-12">
+                                                <input type="hidden" name="id" value="<?php echo $Util['id'] ?>">
+                                            </div>
+                                            <div class="form-group col-12">
                                                 <label for="inputMaxParticipants">Cin</label>
-                                                <input name="cin" type="text" class="form-control" id="inputMaxParticipants" placeholder="Cin">
-                                            </div>
-                                            <div class="form-group col-12">
-                                                <label for="inputMaxParticipants">Nom</label>
-                                                <input name="nom" type="text" class="form-control" id="inputMaxParticipants" placeholder="nom Utilisateur">
-                                            </div>
-                                            <div class="form-group col-12">
-                                                <label for="inputMaxParticipants">Prénom</label>
-                                                <input name="prenom" type="text" class="form-control" id="inputMaxParticipants" placeholder="prenom Utilisateur">
-                                            </div>
-                                            <div class="form-group col-12">
-                                                <label for="inputMaxParticipants">Adresse</label>
-                                                <input name="adresse" type="text" class="form-control" id="inputMaxParticipants" placeholder="Adresse">
-                                            </div>
-                                           
-                                            <div class="form-group col-12">
-                                                <label for="inputMaxParticipants">Email</label>
-                                                <input name="email" type="texte" class="form-control" id="inputMaxParticipants" placeholder="Email">
-                                            </div>
-                                            <div class="form-group col-12">
-                                                <label for="inputMaxParticipants">Password</label>
-                                                <input name="pass" type="text" class="form-control" id="inputMaxParticipants" placeholder="Password">
+                                                <input name="cin" type="text" class="form-control" value="<?php echo $Util['cin'] ?>" id="inputMaxParticipants" placeholder="Max participants">
                                             </div>
                                             
-                                         
+                                            <div class="form-group col-12">
+                                                <label for="inputMaxParticipants">Nom </label>
+                                                <input name="nom" type="text" value="<?php echo $Util['nom'] ?>" class="form-control" id="inputMaxParticipants" placeholder="">
+                                            </div>
+                                            <div class="form-group col-12">
+                                                <label for="inputMaxParticipants">Prénom </label>
+                                                <input name="prenom" type="text" value="<?php echo $Util['prenom'] ?>" class="form-control" id="inputMaxParticipants" placeholder="">
+                                            </div>
+                                            <div class="form-group col-12">
+                                                <label for="inputMaxParticipants">Adresse </label>
+                                                <input name="adresse" type="text" value="<?php echo $Util['adresse'] ?>" class="form-control" id="inputMaxParticipants" placeholder="">
+                                            </div>
+                                            <div class="form-group col-12">
+                                                <label for="inputMaxParticipants">Email </label>
+                                                <input name="email" type="text" value="<?php echo $Util['email'] ?>" class="form-control" id="inputMaxParticipants" placeholder="">
+                                            </div>
+                                            <div class="form-group col-12">
+                                                <label for="inputMaxParticipants">Password </label>
+                                                <input name="pass" type="text" value="<?php echo $Util['pass'] ?>" class="form-control" id="inputMaxParticipants" placeholder="">
+                                            </div>
                                             <div class="form-group col-12 text-center">
-                                                <button type="submit" name="addUtilisateur" class="btn btn-primary">Ajouter Utilisateur</button>
+                                                <button type="submit" name="updateUtilisateur" class="btn btn-primary">Update Utilisateur</button>
                                             </div>
                                         </div>
                                     </form>
@@ -324,7 +331,14 @@ if (isset($_POST['addUtilisateur'])) {
         <!-- /footer content -->
       </div>
     </div>
+    <script>
+        function hideMessage() {
+            setTimeout(function() {
+                document.getElementById('message').style.display = 'none';
 
+            }, 2000);
+        }
+    </script>
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
