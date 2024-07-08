@@ -288,8 +288,10 @@ if (isset($_POST['addRole'])) {
                                     <br />
                                     <form method="post" action="">
                                         <div class="form-group col-12">
+                                        
                                         <label for="role">Sélectionnez le rôle :</label>
-                                            <select id="role" name="Libelle">
+                                               <br>
+                                            <select  style="width: 48.5%;" class="form-select" name="Libelle" aria-label="Default select example">
                                                 <option value="admin">Administrateur</option>
                                                 <option value="client">Client</option>
                                             </select>

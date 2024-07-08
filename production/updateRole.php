@@ -4,7 +4,7 @@ $Role = new Role();
 
 
 if (isset($_GET['id_R'])) {
-    $Role = $Role->getRoleById($_GET['id_R']);
+    $RoleId = $Role->getRoleById($_GET['id_R']);
 }
 if (isset($_POST['updateRole'])) {
     $Role->updateRole($_POST);
@@ -42,8 +42,10 @@ if (isset($_POST['updateRole'])) {
             background-color: #f9f9f9;
             color: #333;
             width: 200px;
-            -webkit-appearance: none; /* For Safari */
-            -moz-appearance: none; /* For Firefox */
+            -webkit-appearance: none;
+            /* For Safari */
+            -moz-appearance: none;
+            /* For Firefox */
             appearance: none;
             background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij48cGF0aCBkPSJNMyAzbDEgMUw3IDJsNCA0TDEwIDExTDcuNTIgNi4wMkw2LjUyIDcuMzNMNCA1eiIvPjwvc3ZnPg==');
             background-repeat: no-repeat;
@@ -296,21 +298,32 @@ if (isset($_POST['updateRole'])) {
                                     <form method="post" action="">
                                         <div class="row">
                                             <div class="form-group col-12">
-                                                <input type="hidden" name="id_R" value="<?php echo $Role['id_R'] ?>">
+                                                <input type="hidden" name="id_R" value="<?php echo $RoleId['id_R'] ?>">
                                             </div>
+
 
                                             <div class="form-group col-6">
                                                 <label for="inputMaxParticipants">Role</label>
-                                                <input name="Libelle" type="text" value="<?php echo $Role['Libelle'] ?>" class="form-control" id="inputMaxParticipants" placeholder="Code" disabled>
-                                                <label for="role">Sélectionnez le rôle :</label>
+                                                <input name="Libelle" type="text" value="<?php echo $RoleId['Libelle'] ?>" class="form-control" id="inputMaxParticipants" placeholder="" disabled>
+                                                <br>
 
-                                                <select id="role" name="Libelle">
-                                                    <option value="admin">Administrateur</option>
-                                                    <option value="client">Client</option>
-                                                </select>                                           
+                                            </div>
+                                           
+                                            <div class=" col-12">
+
+                                            <label for="role">Sélectionnez le rôle :</label>
+                                               <br>
+                                            <select  style="width: 48.5%;" class="form-select" name="Libelle" aria-label="Default select example">
+                                                <option value="admin">Administrateur</option>
+                                                <option value="client">Client</option>
+                                            </select>
+
                                             </div>
                                             
-                                            <div class="form-group col-12 text-center">
+                                            
+                                         
+
+                                            <div class="form-group col-12 text-center mt-3">
                                                 <button type="submit" name="updateRole" class="btn btn-primary">Update Role</button>
                                             </div>
                                         </div>
