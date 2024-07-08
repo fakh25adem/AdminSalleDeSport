@@ -1,9 +1,9 @@
 <?php
 include "../production/classe/role.php";
 $Role = new Role();
-if (isset($_POST['add_Role'])) {
+if (isset($_POST['addRole'])) {
     $addRole = $Role->addRole($_POST);
-    // header(("location: listeR.php"));
+     header(("location: listeR.php"));
 }
 ?>
 
@@ -27,7 +27,33 @@ if (isset($_POST['add_Role'])) {
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <link href="../build/css/custom.min.css" rel="stylesheet">
 </head>
+<style>
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            color: #333;
+            width: 200px;
+            -webkit-appearance: none; /* For Safari */
+            -moz-appearance: none; /* For Firefox */
+            appearance: none;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij48cGF0aCBkPSJNMyAzbDEgMUw3IDJsNCA0TDEwIDExTDcuNTIgNi4wMkw2LjUyIDcuMzNMNCA1eiIvPjwvc3ZnPg==');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+        }
 
+        select:hover {
+            border-color: #888;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+    </style>
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
@@ -262,8 +288,11 @@ if (isset($_POST['add_Role'])) {
                                     <br />
                                     <form method="post" action="">
                                         <div class="form-group col-12">
-                                            <label for="inputNom">Nom du salle</label>
-                                            <input name="Libelle" type="text" class="form-control" id="inputNom" placeholder="Role">
+                                        <label for="role">Sélectionnez le rôle :</label>
+                                            <select id="role" name="Libelle">
+                                                <option value="admin">Administrateur</option>
+                                                <option value="client">Client</option>
+                                            </select>
                                         </div>
                                 
                                         <div class="form-group col-12 text-center">
