@@ -1,13 +1,17 @@
 <?php
-include "../production/classe/Role.php";
-$Role= new Role();
-$listRole = $Role->listRole();
- if(isset($_GET['id_R']))
- {
- $Role->deleteRole($_GET['id_R']);
- header(("location: listeR.php"));
- }
+include "../production/classe/role.php";
+$Role = new Role();
 
+
+if (isset($_GET['id_R'])) {
+    $Role = $Role->getRoleById($_GET['id_R']);
+}
+if (isset($_POST['updateRole'])) {
+    $Role->updateRole($_POST);
+
+    header(("location: listeR.php"));
+}
+// comment
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +21,7 @@ $listRole = $Role->listRole();
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Salle de sport  </title>
+    <title>Salle de sport </title>
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
@@ -28,15 +32,42 @@ $listRole = $Role->listRole();
     <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <link href="../build/css/custom.min.css" rel="stylesheet">
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            color: #333;
+            width: 200px;
+            -webkit-appearance: none; /* For Safari */
+            -moz-appearance: none; /* For Firefox */
+            appearance: none;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij48cGF0aCBkPSJNMyAzbDEgMUw3IDJsNCA0TDEwIDExTDcuNTIgNi4wMkw2LjUyIDcuMzNMNCA1eiIvPjwvc3ZnPg==');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+        }
 
-<body class="nav-md">
+        select:hover {
+            border-color: #888;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+    </style>
+
+<body onload="hideMessage()" class="nav-md">
     <div class="container body">
         <div class="main_container">
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="ajouterAbon.php" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
+                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Salle de sport</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -46,7 +77,7 @@ $listRole = $Role->listRole();
                             <img src="images/adem.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>Welcome,</span>
+                            <span>Welcome</span>
                             <h2>Adem Fakhfakh</h2>
                         </div>
                     </div>
@@ -54,63 +85,62 @@ $listRole = $Role->listRole();
                     <br />
 
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>Admin</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="ajouterU.php">Ajouter utilisateur</a></li>
-                      <li><a href="listeU.php">Liste utilisateur</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="ajouterR.php">Ajouter role</a></li>
-                      <li><a href="listeR.php">Liste role</a></li>
-                     
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-desktop"></i> Activité <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="ajouterAct.php">Ajouter Activité</a></li>
-                      <li><a href="listeAct.php">Liste activité</a></li>
-                     
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-table"></i> Entraineur <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="ajouterEn.php">Ajouter entraineur</a></li>
-                      <li><a href="listeEn.php">listee entraineur</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i> Emploi <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="ajouterEmp.php">Ajouter emploi</a></li>
-                      <li><a href="listeEmp.php">Liste emploi</a></li>
-                 
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-clone"></i>Abonnement <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                    <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
+                        <div class="menu_section">
+                            <h3>Admin</h3>
+                            <ul class="nav side-menu">
+                                <li><a><i class="fa fa-home"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterU.html">Ajouter utilisateur</a></li>
+                                        <li><a href="listeU.html">Liste utilisateur</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterR.html">Ajouter role</a></li>
+                                        <li><a href="listeR.html">Liste role</a></li>
 
-                      <li><a href="listeAbon.php">Liste abonnement</a></li>
-                     
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                    <li><a href="ajouterSalle.php">Ajouter salle</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-desktop"></i> Activité <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterAct.php">Ajouter Activité</a></li>
+                                        <li><a href="listeAct.php">Liste activité</a></li>
 
-                      <li><a href="listeSalle.php">Liste salle</a></li>
-                     
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-           
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-table"></i> Entraineur <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterEn.html">Ajouter entraineur</a></li>
+                                        <li><a href="listeEn.html">listee entraineur</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-bar-chart-o"></i> Emploi <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterEmp.html">Ajouter emploi</a></li>
+                                        <li><a href="listeEmp.html">Liste emploi</a></li>
 
-            </div>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-clone"></i>Abonnement <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
+                                        <li><a href="listeAbon.php">Liste abonnement</a></li>
+
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterSalle.php">Ajouter salle</a></li>
+
+                                        <li><a href="listeSalle.php">Liste salle</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
 
                     <div class="sidebar-footer hidden-small">
                         <a data-toggle="tooltip" data-placement="top" title="Settings">
@@ -224,7 +254,7 @@ $listRole = $Role->listRole();
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Liste activité</h3>
+                            <h3>Update Role</h3>
                         </div>
 
                         <div class="title_right">
@@ -243,7 +273,7 @@ $listRole = $Role->listRole();
                         <div class="col-md-12 col-sm-12 ">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2> <small>different form elements</small></h2>
+                                    <h2><small>different form elements</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -263,32 +293,28 @@ $listRole = $Role->listRole();
                                 </div>
                                 <div class="x_content">
                                     <br />
-                                    <div class="container mt-5">
-    <table class="table table-bordered table-hover">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">Libelle_Role</th>
-            <th scope="col">Delete</th>
-            <th scope="col">Update</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-       while ($c = $listRole->fetch()) {
-      
-        echo "<tr>
-            
-               <td>{$c['Libelle']}</td>
-            
-               <td><a href='?id_R={$c['id_R']}' class='btn btn-danger btn-sm'>Delete</a></td>
-               <td><a href='updateRole.php?id_R={$c['id_R']}' class='btn btn-primary btn-sm'>Update</a></td>
-              </tr>";
-    }
-    
-        ?>
-        </tbody>
-    </table>
-</div>
+                                    <form method="post" action="">
+                                        <div class="row">
+                                            <div class="form-group col-12">
+                                                <input type="hidden" name="id_R" value="<?php echo $Role['id_R'] ?>">
+                                            </div>
+
+                                            <div class="form-group col-6">
+                                                <label for="inputMaxParticipants">Role</label>
+                                                <input name="Libelle" type="text" value="<?php echo $Role['Libelle'] ?>" class="form-control" id="inputMaxParticipants" placeholder="Code" disabled>
+                                                <label for="role">Sélectionnez le rôle :</label>
+
+                                                <select id="role" name="Libelle">
+                                                    <option value="admin">Administrateur</option>
+                                                    <option value="client">Client</option>
+                                                </select>                                           
+                                            </div>
+                                            
+                                            <div class="form-group col-12 text-center">
+                                                <button type="submit" name="updateRole" class="btn btn-primary">Update Role</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -304,11 +330,19 @@ $listRole = $Role->listRole();
             </footer>
         </div>
     </div>
-    
+    <script>
+        function hideMessage() {
+            setTimeout(function() {
+                document.getElementById('message').style.display = 'none';
+
+            }, 2000);
+        }
+    </script>
+
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-   <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
@@ -318,6 +352,12 @@ $listRole = $Role->listRole();
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(".multiple-select").select2({
+            //   maximumSelectionLength: 2
+        });
+    </script>
 </body>
 
 </html>

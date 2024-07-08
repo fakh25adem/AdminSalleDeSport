@@ -21,12 +21,12 @@ class Role
     function getRoleById($id_R)
     {
     
-        return $this->db->query("SELECT * FROM Role where id='$id_R'")->fetch();
+        return $this->db->query("SELECT * FROM Role where id_R='$id_R'")->fetch();
   
     }
     function deleteRole($id_R)
     {
-        $this->db->exec("DELETE FROM Role WHERE id = '$id_R'");
+        $this->db->exec("DELETE FROM Role WHERE id_R= '$id_R'");
 
     }
     function updateRole($Data)
@@ -34,7 +34,7 @@ class Role
         $id_R = $Data['id_R'];
         $Libelle = $Data['Libelle'];
        
-        return $this->db->exec("UPDATE Role SET Libelle='$Libelle' WHERE id_R='$id_R'");
+        return $this->db->exec("UPDATE role SET Libelle='$Libelle' WHERE id_R='$id_R'");
   
     }
    
