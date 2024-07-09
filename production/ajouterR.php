@@ -66,12 +66,12 @@ if (isset($_POST['addRole'])) {
                     <div class="clearfix"></div>
 
                     <div class="profile clearfix">
-                        <div class="profile_pic">
-                            <img src="images/adem.jpg" alt="..." class="img-circle profile_img">
+                    <div class="profile_pic">
+                            <img src="../docs/images/logo.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2>Adem Fakhfakh</h2>
+                            <span>Welcome</span>
+                            <h2>Energym</h2>
                         </div>
                     </div>
 
@@ -124,7 +124,6 @@ if (isset($_POST['addRole'])) {
                                 <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="ajouterSalle.php">Ajouter salle</a></li>
-
                                         <li><a href="listeSalle.php">Liste salle</a></li>
 
                                     </ul>

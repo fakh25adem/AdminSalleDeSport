@@ -1,4 +1,7 @@
 <?php
+include "../production/classe/Role.php";
+$Role = new Role();
+$listeR = $Role->listRole();
 include "../production/classe/utilisateur.php";
 $utilisateur = new utilisateur();
 if (isset($_POST['addUtilisateur'])) {
@@ -37,7 +40,33 @@ if (isset($_POST['addUtilisateur'])) {
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
+  <style>
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            color: #333;
+            width: 200px;
+            -webkit-appearance: none; /* For Safari */
+            -moz-appearance: none; /* For Firefox */
+            appearance: none;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE0IDE0Ij48cGF0aCBkPSJNMyAzbDEgMUw3IDJsNCA0TDEwIDExTDcuNTIgNi4wMkw2LjUyIDcuMzNMNCA1eiIvPjwvc3ZnPg==');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+        }
 
+        select:hover {
+            border-color: #888;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+    </style>
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -51,13 +80,13 @@ if (isset($_POST['addUtilisateur'])) {
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="images/adem.jpg" alt="..." class="img-circle profile_img">
-              </div>
-              <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>Adem Fakhfakh</h2>
-              </div>
+            <div class="profile_pic">
+                            <img src="../docs/images/logo.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome</span>
+                            <h2>Energym</h2>
+                        </div>
             </div>
             <!-- /menu profile quick info -->
 
@@ -70,43 +99,50 @@ if (isset($_POST['addUtilisateur'])) {
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="ajouterU.html">Ajouter utilisateur</a></li>
-                      <li><a href="listeU.html">Liste utilisateur</a></li>
+                      <li><a href="ajouterU.php">Ajouter utilisateur</a></li>
+                      <li><a href="listeU.php">Liste utilisateur</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="ajouterR.html">Ajouter role</a></li>
-                      <li><a href="listeR.html">Liste role</a></li>
+                      <li><a href="ajouterR.php">Ajouter role</a></li>
+                      <li><a href="listeR.php">Liste role</a></li>
                      
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Activité <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="ajouterAct.html">Ajouter Activité</a></li>
-                      <li><a href="listeAct.html">Liste activité</a></li>
+                      <li><a href="ajouterAct.php">Ajouter Activité</a></li>
+                      <li><a href="listeAct.php">Liste activité</a></li>
                      
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> Entraineur <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="ajouterEn.html">Ajouter entraineur</a></li>
-                      <li><a href="listeEn.html">listee entraineur</a></li>
+                      <li><a href="ajouterEn.php">Ajouter entraineur</a></li>
+                      <li><a href="listeEn.php">listee entraineur</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Emploi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="ajouterEmp.html">Ajouter emploi</a></li>
-                      <li><a href="listeEmp.html">Liste emploi</a></li>
+                      <li><a href="ajouterEmp.php">Ajouter emploi</a></li>
+                      <li><a href="listeEmp.php">Liste emploi</a></li>
                  
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i>Abonnement <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="ajouterAbon.php"></i>Abonnement <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="listeAbon.html">Liste abonnement</a></li>
+                      <li><a href="listeAbon.php">Liste abonnement</a></li>
                      
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterSalle.php">Ajouter salle</a></li>
+                                        <li><a href="listeSalle.php">Liste salle</a></li>
+
+                                    </ul>
+                                </li>
                 </ul>
               </div>
            
@@ -298,7 +334,20 @@ if (isset($_POST['addUtilisateur'])) {
                                                 <label for="inputMaxParticipants">Password</label>
                                                 <input name="pass" type="text" class="form-control" id="inputMaxParticipants" placeholder="Password">
                                             </div>
+                                            <div class="form-group col-12">
+                                        
+                                        <label for="role">Sélectionnez le rôle :</label>
+                                               <br>
+                                            <select  style="width: 48.5%;" class="form-select" name="Libelle" aria-label="Default select example">
+                                            <?php
+                                                    while ($c = $listeR->fetch()) {
+                                                        echo "<option value='{$c['id_R']}'>{$c['Libelle']}</option>";
+                                                    }
+                                                    ?>
                                             
+                                            
+                                            </select>
+                                        </div>
                                          
                                             <div class="form-group col-12 text-center">
                                                 <button type="submit" name="addUtilisateur" class="btn btn-primary">Ajouter Utilisateur</button>

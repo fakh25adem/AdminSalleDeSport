@@ -42,12 +42,12 @@ header(("location: listeAct.php"));
                     <div class="clearfix"></div>
 
                     <div class="profile clearfix">
-                        <div class="profile_pic">
-                            <img src="images/adem.jpg" alt="..." class="img-circle profile_img">
+                    <div class="profile_pic">
+                            <img src="../docs/images/logo.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2>Adem Fakhfakh</h2>
+                            <span>Welcome</span>
+                            <h2>Energym</h2>
                         </div>
                     </div>
 
@@ -59,8 +59,8 @@ header(("location: listeAct.php"));
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="ajouterU.html">Ajouter utilisateur</a></li>
-                      <li><a href="listeU.html">Liste utilisateur</a></li>
+                      <li><a href="ajouterU.php">Ajouter utilisateur</a></li>
+                      <li><a href="listeU.php">Liste utilisateur</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>

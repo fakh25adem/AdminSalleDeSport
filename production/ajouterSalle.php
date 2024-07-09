@@ -40,12 +40,12 @@ if (isset($_POST['add_Salle'])) {
                     <div class="clearfix"></div>
 
                     <div class="profile clearfix">
-                        <div class="profile_pic">
-                            <img src="images/adem.jpg" alt="..." class="img-circle profile_img">
+                    <div class="profile_pic">
+                            <img src="../docs/images/logo.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2>Adem Fakhfakh</h2>
+                            <span>Welcome</span>
+                            <h2>Energym</h2>
                         </div>
                     </div>
 

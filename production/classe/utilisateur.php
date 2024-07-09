@@ -18,8 +18,9 @@ class Utilisateur
         $adresse = $Data['adresse'];
         $email = $Data['email'];
         $pass = $Data['pass'];
+        $idRole = $Data['idRole'];
 
-        $this->db->exec("INSERT INTO utilisateur  VALUES ('','$cin','$nom','$prenom','$adresse','$email','$pass')");
+        $this->db->exec("INSERT INTO utilisateur  VALUES ('$cin','$nom','$prenom','$adresse','$email','$pass','$idRole','')");
       
     }
 
@@ -43,7 +44,9 @@ class Utilisateur
         $adresse = $Data['adresse'];
         $email = $Data['email'];
         $pass = $Data['pass'];
-        return $this->db->exec("UPDATE utilisateur SET cin='$cin' ,nom='$nom',prenom='$prenom',adresse='$adresse',email='$email',pass='$pass' WHERE id='$id'");
+        $idRole = $Data['idRole'];
+
+        return $this->db->exec("UPDATE utilisateur SET cin='$cin' ,nom='$nom',prenom='$prenom',adresse='$adresse',email='$email',pass='$pass',idRole='$idRole' WHERE id='$id'");
   
     }
 

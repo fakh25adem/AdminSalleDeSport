@@ -48,12 +48,12 @@ header(("location: listeAct.php"));
                     <div class="clearfix"></div>
 
                     <div class="profile clearfix">
-                        <div class="profile_pic">
-                            <img src="images/adem.jpg" alt="..." class="img-circle profile_img">
+                    <div class="profile_pic">
+                            <img src="../docs/images/logo.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2>Adem Fakhfakh</h2>
+                            <span>Welcome</span>
+                            <h2>Energym</h2>
                         </div>
                     </div>
 
@@ -65,14 +65,14 @@ header(("location: listeAct.php"));
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Utilisateur <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterU.html">Ajouter utilisateur</a></li>
-                                        <li><a href="listeU.html">Liste utilisateur</a></li>
+                                        <li><a href="ajouterU.php">Ajouter utilisateur</a></li>
+                                        <li><a href="listeU.php">Liste utilisateur</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterR.html">Ajouter role</a></li>
-                                        <li><a href="listeR.html">Liste role</a></li>
+                                        <li><a href="ajouterR.php">Ajouter role</a></li>
+                                        <li><a href="listeR.php">Liste role</a></li>
 
                                     </ul>
                                 </li>
@@ -85,14 +85,14 @@ header(("location: listeAct.php"));
                                 </li>
                                 <li><a><i class="fa fa-table"></i> Entraineur <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterEn.html">Ajouter entraineur</a></li>
-                                        <li><a href="listeEn.html">listee entraineur</a></li>
+                                        <li><a href="ajouterEn.php">Ajouter entraineur</a></li>
+                                        <li><a href="listeEn.php">listee entraineur</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-bar-chart-o"></i> Emploi <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="ajouterEmp.html">Ajouter emploi</a></li>
-                                        <li><a href="listeEmp.html">Liste emploi</a></li>
+                                        <li><a href="ajouterEmp.php">Ajouter emploi</a></li>
+                                        <li><a href="listeEmp.php">Liste emploi</a></li>
 
                                     </ul>
                                 </li>
@@ -100,7 +100,12 @@ header(("location: listeAct.php"));
                                     <ul class="nav child_menu">
                                         <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
                                         <li><a href="listeAbon.php">Liste abonnement</a></li>
-
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-clone"></i>Salle<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="ajouterSalle.php">Ajouter salle</a></li>
+                                        <li><a href="listeSalle.php">Liste salle</a></li>
                                     </ul>
                                 </li>
                             </ul>
