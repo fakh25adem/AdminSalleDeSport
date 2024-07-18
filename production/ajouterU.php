@@ -1,7 +1,4 @@
 <?php
-include "../production/classe/Role.php";
-$Role = new Role();
-$listeR = $Role->listRole();
 include "../production/classe/utilisateur.php";
 $utilisateur = new utilisateur();
 if (isset($_POST['addUtilisateur'])) {
@@ -103,13 +100,7 @@ if (isset($_POST['addUtilisateur'])) {
                       <li><a href="listeU.php">Liste utilisateur</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="ajouterR.php">Ajouter role</a></li>
-                      <li><a href="listeR.php">Liste role</a></li>
-                     
-                    </ul>
-                  </li>
+                  
                   <li><a><i class="fa fa-desktop"></i> Activité <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="ajouterAct.php">Ajouter Activité</a></li>
@@ -130,8 +121,9 @@ if (isset($_POST['addUtilisateur'])) {
                  
                     </ul>
                   </li>
-                  <li><a href="ajouterAbon.php"></i>Abonnement <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-clone"></i>Abonnement <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                    <li><a href="ajouterAbon.php">Ajouter abonnement</a></li>
                       <li><a href="listeAbon.php">Liste abonnement</a></li>
                      
                     </ul>
@@ -179,7 +171,7 @@ if (isset($_POST['addUtilisateur'])) {
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/adem.jpg" alt="">Adem Fakhfakh
+                  <img src="../docs/images/logo.jpg" alt="">Welcome Energym
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -334,18 +326,14 @@ if (isset($_POST['addUtilisateur'])) {
                                                 <label for="inputMaxParticipants">Password</label>
                                                 <input name="pass" type="text" class="form-control" id="inputMaxParticipants" placeholder="Password">
                                             </div>
+                                            
                                             <div class="form-group col-12">
                                         
                                         <label for="role">Sélectionnez le rôle :</label>
                                                <br>
-                                            <select  style="width: 48.5%;" class="form-select" name="Libelle" aria-label="Default select example">
-                                            <?php
-                                                    while ($c = $listeR->fetch()) {
-                                                        echo "<option value='{$c['id_R']}'>{$c['Libelle']}</option>";
-                                                    }
-                                                    ?>
-                                            
-                                            
+                                            <select  style="width: 48.5%;" class="form-select" name="role" aria-label="Default select example">
+                                                <option value="admin">Administrateur</option>
+                                                <option value="client">Client</option>
                                             </select>
                                         </div>
                                          

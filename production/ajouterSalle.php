@@ -61,13 +61,7 @@ if (isset($_POST['add_Salle'])) {
                                         <li><a href="listeU.php">Liste utilisateur</a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="ajouterR.php">Ajouter role</a></li>
-                                        <li><a href="listeR.php">Liste role</a></li>
-
-                                    </ul>
-                                </li>
+                                
                                 <li><a><i class="fa fa-desktop"></i> Activité <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="ajouterAct.php">Ajouter Activité</a></li>
@@ -135,7 +129,7 @@ if (isset($_POST['add_Salle'])) {
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/adem.jpg" alt="">Adem Fakhfakh
+                                <img src="../docs/images/logo.jpg" alt="">Welcome Energym
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="javascript:;"> Profile</a>

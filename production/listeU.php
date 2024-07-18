@@ -63,13 +63,7 @@ $listUtilisateur = $Utilisateur->listUtilisateur();
                       <li><a href="listeU.php">Liste utilisateur</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i>Role <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="ajouterR.php">Ajouter role</a></li>
-                      <li><a href="listeR.php">Liste role</a></li>
-                     
-                    </ul>
-                  </li>
+                  
                   <li><a><i class="fa fa-desktop"></i> Activité <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="ajouterAct.php">Ajouter Activité</a></li>
@@ -138,7 +132,7 @@ $listUtilisateur = $Utilisateur->listUtilisateur();
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/adem.jpg" alt="">Adem Fakhfakh
+                                <img src="../docs/images/logo.jpg" alt="">Welcome Energym
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="javascript:;"> Profile</a>
@@ -273,9 +267,9 @@ $listUtilisateur = $Utilisateur->listUtilisateur();
           <th scope="col">Adresse</th>
           <th scope="col">Email</th>
           <th scope="col">Password</th>
+          <th scope="col">Role</th>
           <th scope="col">Delete</th>
           <th scope="col">Update</th>
-          <th scope="col">Role</th>
 
         </tr>
         </thead>
@@ -292,6 +286,7 @@ $listUtilisateur = $Utilisateur->listUtilisateur();
                <td>{$c['adresse']}</td>
                <td>{$c['email']}</td>
                <td>{$c['pass']}</td>
+               <td>{$c['role']}</td>
 
                <td><a href='?id={$c['id']}' class='btn btn-danger btn-sm'>Delete</a></td>
                <td><a href='updateU.php?id={$c['id']}' class='btn btn-primary btn-sm'>Update</a></td>
